@@ -29,6 +29,7 @@ public class TakenAirwayImplTest {
 		VORImpl r = new VORImpl(null, new PositionImpl(new LatitudeImpl(40, 10, 10, CompassDirection.NORTH), new LongitudeImpl(40, 10, 10, CompassDirection.EAST)));
 		
 		air1 = new AirwayImpl(v,o);
+		
 		//air2 = new Air
 		
 	}
@@ -39,27 +40,32 @@ public class TakenAirwayImplTest {
 
 	@Test
 	public void testTakenAirwayImpl() {
-		fail("Not yet implemented");
+		TakenAirwayImpl tai1 = new TakenAirwayImpl(air1, 1000, CompassDirection.NORTH);
+		assertNotNull(tai1);
 	}
 
 	@Test
 	public void testDistance() {
-		fail("Not yet implemented");
+		TakenAirwayImpl tai1 = new TakenAirwayImpl(air1, 1000, CompassDirection.NORTH);
+		assertEquals(tai1.distance(), air1.getDistance(),0); 
 	}
 
 	@Test
 	public void testGetAirway() {
-		fail("Not yet implemented");
+		TakenAirwayImpl tai1 = new TakenAirwayImpl(air1, 1000, CompassDirection.NORTH);
+		assertEquals(tai1.getAirway(), air1);
 	}
 
 	@Test
 	public void testGetAltitude() {
-		fail("Not yet implemented");
+		TakenAirwayImpl tai1 = new TakenAirwayImpl(air1, 1000, CompassDirection.NORTH);
+		assertEquals(tai1.getAltitude(), 1000, 0);
 	}
 
 	@Test
 	public void testGetSense() {
-		fail("Not yet implemented");
+		TakenAirwayImpl tai1 = new TakenAirwayImpl(air1, 1000, CompassDirection.NORTH);
+		assertEquals(tai1.getSense(), CompassDirection.NORTH);
 	}
 
 }
