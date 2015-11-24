@@ -1,6 +1,6 @@
 package fr.nantes.cta.one;
 
-import fr.nantes.cta.one.*;
+import fr.nantes.cta.*;
 
 
 

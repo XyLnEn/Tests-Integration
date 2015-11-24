@@ -18,9 +18,9 @@ import fr.nantes.cta.one.VORImpl;
 public class TakenAirwayImplTest {
 	
 	private TakenAirwayImpl instance;
-    private Airway air1, air2;
-    private int alt1, alt2;
-    private CompassDirection cd1, cd2;
+    private Airway air1;
+    private int alt1;
+    private CompassDirection cd1;
 
 	@Before
 	public void setUp() throws Exception {
@@ -29,6 +29,7 @@ public class TakenAirwayImplTest {
 		VORImpl r = new VORImpl(null, new PositionImpl(new LatitudeImpl(40, 10, 10, CompassDirection.NORTH), new LongitudeImpl(40, 10, 10, CompassDirection.EAST)));
 		
 		air1 = new AirwayImpl(v,o);
+		cd1 = CompassDirection.NORTH;
 		
 		//air2 = new Air
 		
@@ -40,32 +41,32 @@ public class TakenAirwayImplTest {
 
 	@Test
 	public void testTakenAirwayImpl() {
-		TakenAirwayImpl tai1 = new TakenAirwayImpl(air1, 1000, CompassDirection.NORTH);
+		TakenAirwayImpl tai1 = new TakenAirwayImpl(air1, 1000, cd1);
 		assertNotNull(tai1);
 	}
 
 	@Test
 	public void testDistance() {
-		TakenAirwayImpl tai1 = new TakenAirwayImpl(air1, 1000, CompassDirection.NORTH);
+		TakenAirwayImpl tai1 = new TakenAirwayImpl(air1, 1000, cd1);
 		assertEquals(tai1.distance(), air1.getDistance(),0); 
 	}
 
 	@Test
 	public void testGetAirway() {
-		TakenAirwayImpl tai1 = new TakenAirwayImpl(air1, 1000, CompassDirection.NORTH);
+		TakenAirwayImpl tai1 = new TakenAirwayImpl(air1, 1000, cd1);
 		assertEquals(tai1.getAirway(), air1);
 	}
 
 	@Test
 	public void testGetAltitude() {
-		TakenAirwayImpl tai1 = new TakenAirwayImpl(air1, 1000, CompassDirection.NORTH);
+		TakenAirwayImpl tai1 = new TakenAirwayImpl(air1, 1000, cd1);
 		assertEquals(tai1.getAltitude(), 1000, 0);
 	}
 
 	@Test
 	public void testGetSense() {
-		TakenAirwayImpl tai1 = new TakenAirwayImpl(air1, 1000, CompassDirection.NORTH);
-		assertEquals(tai1.getSense(), CompassDirection.NORTH);
+		TakenAirwayImpl tai1 = new TakenAirwayImpl(air1, 1000, cd1);
+		assertEquals(tai1.getSense(), cd1);
 	}
 
 }
