@@ -94,8 +94,22 @@ import fr.nantes.cta.one.CoordinateImpl;
 
 	@Test //(expected = UnsupportedOperationException.class)
 	public void testSin() {
-		CoordinateImpl a = new CoordinateImpl(arg1, arg2, arg3, null);
+		CoordinateImpl a = new CoordinateImpl(arg1, arg2, arg3, arg4);
 		assertTrue((a.Sin()>= 0) || (a.Sin()<= 360));
 	}
+	
+	@Test
+	public void testDegrees() {
+		CoordinateImpl a = new CoordinateImpl(arg1, arg2, arg3, arg4);
+		assertEquals((arg1+(arg2+arg3/60.)/60.), a.Degrees(), 0);
+		
+	}
+
+	@Test
+	public void testRadians() {
+		CoordinateImpl a = new CoordinateImpl(arg1, arg2, arg3, arg4);
+		assertEquals(Math.toRadians(a.Degrees()), a.Radians(), 0);
+	}
+	
 
 }

@@ -66,12 +66,20 @@ public class FlightPlanImplTest {
 		f.addAirway(tair1);
 		assertSame(tair1, f.getPath().get(0));
 	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testAddWrongAirway() {
+		FlightPlanImpl f = new FlightPlanImpl();
+		f.addAirway(tair1);
+		f.addAirway(tair1);
+	}
 
 	@Test
 	public void testDistance() {
 		FlightPlanImpl f = new FlightPlanImpl();
 		f.addAirway(tair1);
 		double dist1 = f.distance();
+		assertEquals(tair1.distance(), f.distance(), 0);
 		assert dist1 >0;
 		f.addAirway(tair5);
 		assertEquals(dist1*2, f.distance(), 0);
