@@ -11,8 +11,6 @@ import fr.nantes.cta.one.AirplaneImpl;
 
 public class AirplaneImplTest {
 
-	private double _poids;
-	private int _capacite, _consomation, _capareservoir;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -33,7 +31,7 @@ public class AirplaneImplTest {
 	@Test
 	public void testGetAutonomy() {
 		Airplane a = new AirplaneImpl(1000, 200, 10, 600);
-		assertEquals(6000, a.getAutonomy(), 0); 
+		assertEquals(600/10, a.getAutonomy(), 0);//a verifier
 	}
 
 	@Test
